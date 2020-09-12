@@ -1,0 +1,4 @@
+1|walkingtechie.blogspot.com|1900/01/01|lerma|santa maria|7227894563
+2|google.com|2020/02/11|juarez|centro|7223214567
+3|facebook.com|2020/04/14|paseo|azteca|7229876543
+4|twitter.com|2020/05/31|reforma|obrera|7228523694
