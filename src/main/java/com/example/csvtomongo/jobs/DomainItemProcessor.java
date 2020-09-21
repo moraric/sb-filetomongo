@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 
 // import java.time.LocalDateTime;
 // import java.text.SimpleDateFormat;
@@ -51,10 +52,14 @@ public class DomainItemProcessor implements ItemProcessor<Entrada, Domain> {
             return domain;
         }
         else {
-            //  mongoTemplate.findAndModify(query, domain, Domain.class);
-            // mongoTemplate.findAndModify(query, update, entityClass, collectionName)
-            // mongoTemplate.findAndModify(query, update, options, entityClass)
-            // mongoTemplate.findAndModify(query, update, options, entityClass, collectionName)
+            if(dominio.getName().equalsIgnoreCase("facebook.com")){
+                Update update = new Update();
+                update.set("num", entrada.getNum());
+            
+            // mongoTemplate.findAndModify(query, update, Domain.class);
+                mongoTemplate.updateFirst(query, update, Domain.class);
+            }
+
             return null;
         }
 
